@@ -10,8 +10,28 @@
   </head>
 
   <body>
-    <div class="container">
-      <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+        <h1 class="title is-5">Freshly</h1>
+      <% end %>
     </div>
-  </body>
+
+    <div class="navbar-menu">
+      <div class="navbar-end">
+        <div class="field is-grouped">
+          <%= link_to 'New Menu', new_weekly_menu_path, class:"navbar-item button is-dark ml-4" %>
+          <%= link_to 'New Meal', new_meal_path, class:"navbar-item button is-dark ml-4" %>
+          <%= link_to 'All Menus', weekly_menus_path, class:"navbar-item button is-dark ml-4" %>
+          <%= link_to 'All Meals', meals_path, class:"navbar-item button is-dark ml-4" %>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <%= yield %>
+  </div>
+</body>
 </html>

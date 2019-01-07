@@ -18,6 +18,13 @@
 </div>
 
 <div class="control-group">
+  <%= form.label :meal_id, class: 'control-group' %>
+  <div class="controls">
+    <%= form.select(:meal_id, Meal.all {|m| [m.name, m.id]}) %>
+  </div>
+</div>
+
+<div class="control-group">
   <%= form.label "Day Available", class: 'control-label' %>
   <div class="controls">
     <%= form.select(:weekly_menu, options_for_select([['MONDAY', 'MONDAY'], ['TUESDAY', 'TUESDAY'], ['WEDNESDAY', 'WEDNESDAY'], ['THURSDAY', 'THURSDAY'], ['FRIDAY', 'FRIDAY'], ['SATURDAY', 'SATURDAY'], ['SUNDAY', 'SUNDAY']])) %>
