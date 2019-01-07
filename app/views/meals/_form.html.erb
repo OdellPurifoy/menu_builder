@@ -27,13 +27,6 @@
   <%= form.text_area :description, class: 'form-control' %>
 </div>
 
-<div class="control-group">
-  <%= form.label :weekly_menu, class: 'control-group' %>
-  <div class="controls">
-    <%= collection_select(:weekly_menu, :meal_id, WeeklyMenu.all, :id, :start_date, {}, {:multiple => false}) %>
-  </div>
-</div>
-
 <div class="actions">
   <%= form.submit %>
 </div>

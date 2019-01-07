@@ -1,4 +1,5 @@
 class WeeklyMenu < ApplicationRecord
+  attr_accessor :meal_id, :name
   has_many :meals
   validate :available_day_not_changed
 
