@@ -1,0 +1,22 @@
+<%= form_with(model: weekly_menu, local: true) do |form| %>
+  <% if weekly_menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(weekly_menu.errors.count, "error") %> prohibited this weekly_menu from being saved:</h2>
+
+      <ul>
+      <% weekly_menu.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select :start_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

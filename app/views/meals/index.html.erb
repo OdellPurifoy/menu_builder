@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Side dish</th>
       <th>Description</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @meals.each do |meal| %>
       <tr>
+        <td><%= meal.id %></td>
         <td><%= meal.name %></td>
         <td><%= meal.side_dish %></td>
         <td><%= meal.description %></td>
