@@ -1,32 +1,40 @@
 <%= form_with(model: meal, local: true) do |form| %>
-  <% if meal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(meal.errors.count, "error") %> prohibited this meal from being saved:</h2>
+<% if meal.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(meal.errors.count, "error") %>
+      prohibited this meal from being saved:</h2>
 
-      <ul>
+    <ul>
       <% meal.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    </ul>
   </div>
+<% end %>
 
-  <div class="field">
-    <%= form.label :side_dish %>
-    <%= form.text_field :side_dish %>
-  </div>
+<div class="form-group">
+  <%= form.label :name, class: 'form-control-label' %>
+  <%= form.text_field :name, class: 'form-control' %>
+</div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+<div class="form-group">
+  <%= form.label :side_dish, class: 'form-control-label'%>
+  <%= form.text_field :side_dish, class: 'form-control' %>
+</div>
 
-  <div class="actions">
-    <%= form.submit %>
+<div class="form-group">
+  <%= form.label :description, class: 'form-control-label' %>
+  <%= form.text_area :description, class: 'form-control' %>
+</div>
+
+<div class="control-group">
+  <%= form.label :weekly_menu, class: 'control-group' %>
+  <div class="controls">
+    <%= collection_select(:weekly_menu, :meal_id, WeeklyMenu.all, :id, :start_date, {}, {:multiple => false}) %>
   </div>
+</div>
+
+<div class="actions">
+  <%= form.submit %>
+</div>
 <% end %>
