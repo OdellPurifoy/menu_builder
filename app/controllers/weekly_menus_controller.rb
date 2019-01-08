@@ -4,7 +4,8 @@ class WeeklyMenusController < ApplicationController
   # GET /weekly_menus
   # GET /weekly_menus.json
   def index
-    @weekly_menus = WeeklyMenu.all
+    #Only offer one meal per week
+    @weekly_menus = WeeklyMenu.where('start_date <=?', Time.now - 7.days).limit(1)
   end
 
   # GET /weekly_menus/1
@@ -73,6 +74,13 @@ class WeeklyMenusController < ApplicationController
       format.html { redirect_to weekly_menus_url, notice: 'Weekly menu was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  # Copies the start date of the menu
+  def copy
+    @original = WeeklyMenu.find(params[:id])
+    @weekly_menu = @original.dup
+    render 'new'
   end
 
   private
