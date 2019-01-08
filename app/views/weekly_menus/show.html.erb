@@ -5,5 +5,9 @@
   <%= @weekly_menu.start_date %>
 </p>
 
-<%= link_to 'Edit', edit_weekly_menu_path(@weekly_menu) %> |
+<%= link_to 'Edit', edit_weekly_menu_path(@weekly_menu) %>
+|
 <%= link_to 'Back', weekly_menus_path %>
+|
+<%= link_to "Copy", copy_weekly_menu_path(params[:id]) %>
+|

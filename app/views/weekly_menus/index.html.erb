@@ -15,7 +15,7 @@
   <tbody>
     <% @weekly_menus.each do |weekly_menu| %>
       <tr>
-        <td><%= weekly_menu.start_date %></td>
+        <td><%= weekly_menu.start_date.strftime("Starts on: %m/%d/%Y") %></td>
         <td><%= weekly_menu.meals.map(&:name).join(', ') %></td>
         <td><%= weekly_menu.meals.count %></td>
         <td><%= link_to 'Show', weekly_menu %></td>

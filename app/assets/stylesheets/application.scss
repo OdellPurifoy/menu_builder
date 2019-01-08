@@ -14,3 +14,10 @@
  *= require_self
  */
 @import "bootstrap";
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  color: #fff !important;
+}
