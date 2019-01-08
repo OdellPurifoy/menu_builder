@@ -1,3 +1,4 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+class CopyMenu {
+  let data_hash = 'http://localhost:3000/weekly_menus.json'
+  
+}

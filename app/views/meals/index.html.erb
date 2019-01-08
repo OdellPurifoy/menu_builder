@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Meals</h1>
+<h1 class="display-4 text-center mb-4">Meals</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Side dish</th>
-      <th>Description</th>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Side dish</th>
+      <th scope="col">Description</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Meal', new_meal_path %>
+<%= link_to 'New Meal', new_meal_path, class: 'btn btn-primary' %>
