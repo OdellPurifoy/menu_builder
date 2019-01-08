@@ -20,7 +20,7 @@
 <div class="control-group">
   <%= form.label :meal_id, class: 'control-group' %>
   <div class="controls">
-    <%= form.select(:meal_id, Meal.all {|m| [m.name, m.id]}) %>
+    <%= form.select(:meal_id, Meal.all.map {|m| [m.name, m.id]}) %>
   </div>
 </div>
 

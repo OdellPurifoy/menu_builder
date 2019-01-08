@@ -15,7 +15,7 @@
     <% @weekly_menus.each do |weekly_menu| %>
       <tr>
         <td><%= weekly_menu.start_date %></td>
-        <td><%= weekly_menu.meals.name %></td>
+        <td><%= weekly_menu.meals.count %></td>
         <td><%= link_to 'Show', weekly_menu %></td>
         <td><%= link_to 'Edit', edit_weekly_menu_path(weekly_menu) %></td>
         <td><%= link_to 'Destroy', weekly_menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
