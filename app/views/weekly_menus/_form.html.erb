@@ -22,14 +22,8 @@
   <%= collection_select(:weekly_menu, :meal_ids, Meal.all, :id, :name, {}, { :multiple => true } )%>
 </div>
 
-<div class="control-group">
-  <%= form.label "Day Available", class: 'control-label' %>
-  <div class="controls">
-    <%= form.select(:weekly_menu, options_for_select([['MONDAY', 'MONDAY'], ['TUESDAY', 'TUESDAY'], ['WEDNESDAY', 'WEDNESDAY'], ['THURSDAY', 'THURSDAY'], ['FRIDAY', 'FRIDAY'], ['SATURDAY', 'SATURDAY'], ['SUNDAY', 'SUNDAY']])) %>
-  </div>
-</div>
-
 <div class="actions">
   <%= form.submit %>
 </div>
+
 <% end %>

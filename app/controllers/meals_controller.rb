@@ -54,6 +54,8 @@ class MealsController < ApplicationController
   # DELETE /meals/1
   # DELETE /meals/1.json
   def destroy
+    @weekly_menu = WeeklyMenu.find(params[:id])
+    @meal = Meal.find(params[:id])
     @meal.destroy
     respond_to do |format|
       format.html { redirect_to meals_url, notice: 'Meal was successfully destroyed.' }

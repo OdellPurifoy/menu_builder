@@ -10,29 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_190_108_022_513) do
-  create_table 'meals', force: :cascade do |t|
-    t.string 'name'
-    t.string 'side_dish'
-    t.text 'description'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.integer 'weekly_menu_id'
-    t.index ['name'], name: 'index_meals_on_name', unique: true
+ActiveRecord::Schema.define(version: 2019_01_09_013456) do
+
+  create_table "meals", force: :cascade do |t|
+    t.string "name"
+    t.string "side_dish"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "weekly_menu_id"
+    t.integer "user_id"
+    t.index ["name"], name: "index_meals_on_name", unique: true
   end
 
-  create_table 'meals_weekly_menus', id: false, force: :cascade do |t|
-    t.integer 'meal_id', null: false
-    t.integer 'weekly_menu_id', null: false
-    t.index %w[meal_id weekly_menu_id], name: 'index_meals_weekly_menus_on_meal_id_and_weekly_menu_id'
-    t.index %w[weekly_menu_id meal_id], name: 'index_meals_weekly_menus_on_weekly_menu_id_and_meal_id'
+  create_table "meals_weekly_menus", id: false, force: :cascade do |t|
+    t.integer "meal_id", null: false
+    t.integer "weekly_menu_id", null: false
+    t.index ["meal_id", "weekly_menu_id"], name: "index_meals_weekly_menus_on_meal_id_and_weekly_menu_id"
+    t.index ["weekly_menu_id", "meal_id"], name: "index_meals_weekly_menus_on_weekly_menu_id_and_meal_id"
   end
 
-  create_table 'weekly_menus', force: :cascade do |t|
-    t.date 'start_date'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'available_day'
-    t.integer 'meal_id', null: false
+  create_table "weekly_menus", force: :cascade do |t|
+    t.date "start_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
+
 end
