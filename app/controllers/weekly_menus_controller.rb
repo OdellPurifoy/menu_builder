@@ -4,9 +4,7 @@ class WeeklyMenusController < ApplicationController
   # GET /weekly_menus
   # GET /weekly_menus.json
   def index
-    #Only offer one meal per week
     @weekly_menus = WeeklyMenu.all
-    # @weekly_menus = WeeklyMenu.where('start_date <=?', Time.now - 7.days).limit(1)
   end
 
   # GET /weekly_menus/1
