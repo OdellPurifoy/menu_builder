@@ -5,7 +5,8 @@ class WeeklyMenusController < ApplicationController
   # GET /weekly_menus.json
   def index
     #Only offer one meal per week
-    @weekly_menus = WeeklyMenu.where('start_date <=?', Time.now - 7.days).limit(1)
+    @weekly_menus = WeeklyMenu.all
+    # @weekly_menus = WeeklyMenu.where('start_date <=?', Time.now - 7.days).limit(1)
   end
 
   # GET /weekly_menus/1
@@ -92,6 +93,6 @@ class WeeklyMenusController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def weekly_menu_params
-    params.require(:weekly_menu).permit(:start_date)
+    params.require(:weekly_menu).permit(:start_date, :meals_attributes => [:id, :name,:_destroy])
   end
 end
